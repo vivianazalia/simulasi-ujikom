@@ -13,18 +13,37 @@ namespace MatchTile.Tile
 
         private bool isSelected = false;
 
-        public static UnityAction<int> onTileSelected;
+        public static UnityAction<int, TileObject> onTileSelected;
 
         public void OnRaycastHit()
         {
             Debug.Log(gameObject.name);
             isSelected = true;
-            onTileSelected?.Invoke(id);
+            SetActiveTile();
+            onTileSelected?.Invoke(id, this);
         }
 
         public void UnSelected()
         {
             isSelected = false;
+            SetActiveTile();
+        }
+
+        public void SetActiveTile()
+        {
+            if (isSelected)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(true);
+            }
+        }
+
+        public int GetID()
+        {
+            return id;
         }
     }
 }
