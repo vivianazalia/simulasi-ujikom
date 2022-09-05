@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.095674604, g: 0.30357182, b: 0.8113208, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -239,7 +239,11 @@ MonoBehaviour:
   sizeBoard: {x: 4, y: 6}
   padding: {x: 0.1, y: 0.1}
   tiles: []
-  prefab: {fileID: 7666133869138397288, guid: 446a20b2e333c814cbad8e67f5d9ed33, type: 3}
+  prefabs:
+  - {fileID: 7666133869138397288, guid: 2cded6df4d56a404680db16f66a080a1, type: 3}
+  - {fileID: 7666133869138397288, guid: c7f84287b2f3b7c4da5a6badce6e8b8e, type: 3}
+  - {fileID: 7666133869138397288, guid: 446a20b2e333c814cbad8e67f5d9ed33, type: 3}
+  - {fileID: 7666133869138397288, guid: c3aada3a0d2aa774b80d7296a1c9289b, type: 3}
 --- !u!4 &1779962111
 Transform:
   m_ObjectHideFlags: 0

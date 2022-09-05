@@ -15,7 +15,7 @@ namespace MatchTile.TileGroup
 
         [Header("Tiles")]
         [SerializeField] private List<TileObject> tiles = new List<TileObject>();
-        [SerializeField] private GameObject prefab;
+        [SerializeField] private List<GameObject> prefabs = new List<GameObject>();
         private Vector2 tileSize;
 
         private void Start()
@@ -26,7 +26,7 @@ namespace MatchTile.TileGroup
 
         public void Setup()
         {
-            tileSize = prefab.GetComponent<SpriteRenderer>().size;
+            tileSize = prefabs[0].GetComponent<SpriteRenderer>().size;
             Vector2 totalSize = (tileSize + padding) * (sizeBoard - Vector2.one);
             startPos = (Vector2)transform.position - (totalSize / 2);
             endPos = startPos + totalSize;
@@ -38,7 +38,8 @@ namespace MatchTile.TileGroup
             {
                 for (int y = 0; y < sizeBoard.y; y++)
                 {
-                    TileObject tile = Instantiate(prefab).GetComponent<TileObject>();
+                    int rand = Random.Range(0, prefabs.Count);
+                    TileObject tile = Instantiate(prefabs[rand]).GetComponent<TileObject>();
                     tiles.Add(tile);
                     Vector2 pos = new Vector2(startPos.x + (tileSize.x + padding.x) * x, startPos.y + (tileSize.y + padding.y) * y);
                     tile.transform.position = pos;
