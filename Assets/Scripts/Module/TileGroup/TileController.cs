@@ -18,6 +18,13 @@ namespace MatchTile.TileGroup
         [SerializeField] private List<GameObject> prefabs = new List<GameObject>();
         private Vector2 tileSize;
 
+        public int tileSelectedID;
+
+        private void OnEnable()
+        {
+            TileObject.onTileSelected += SetTileSelected;
+        }
+
         private void Start()
         {
             Setup();
@@ -48,6 +55,26 @@ namespace MatchTile.TileGroup
             }
         }
 
+        public void SetTileSelected(int id)
+        {
+            tileSelectedID = id;
+        }
+
+        public void ResetSelectionTile()
+        {
+            tileSelectedID = 0;
+            foreach(var tile in tiles)
+            {
+                tile.UnSelected();
+            }
+        }
+
+        public void Match()
+        {
+            if (tileSelectedID == 0) return;
+
+
+        }
     }
 
 }
